@@ -13,7 +13,7 @@ namespace RPG.Control {
         private void Update()
         {
             if (InterractWithCombat()) { 
-            } else if (InterractWithMovement()) { 
+            } else if (InterractWithMovement()) {  
             } 
         }
 
@@ -36,6 +36,7 @@ namespace RPG.Control {
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
             if (hasHit) {
                 if (Input.GetMouseButton(0)) {
+                    fighter.Cancel();
                     mover.MoveTo(hit.point);
                 }  
                 return true;

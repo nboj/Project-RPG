@@ -9,11 +9,10 @@ namespace RPG.Combat {
         private void Start(){
             mover = GetComponent<Mover>();
         }
-        private void Update() {
+        private void Update() { 
             if (target != null) {
-                bool isInRange = Vector3.Distance(transform.position, target.position) < weaponRange;
-                if (!isInRange) {
-                    mover.MoveTo(target.position);
+                if (!(Vector3.Distance(transform.position, target.position) < weaponRange)) {  
+                        mover.MoveTo(target.position); 
                 } else {
                     mover.StopAgent();
                 }
@@ -21,6 +20,9 @@ namespace RPG.Combat {
         }
         public void Attack(CombatTarget target) {
             this.target = target.transform;
+        }
+        public void Cancel() {
+            target = null;
         }
     }
 }

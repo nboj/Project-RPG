@@ -1,9 +1,10 @@
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
+using RPG.Combat;
 
 namespace RPG.Movement {
     public class Mover : MonoBehaviour {    
-        private NavMeshAgent agent;
+        private NavMeshAgent agent; 
         private Animator animator;
 
         private void Start() {
@@ -13,8 +14,7 @@ namespace RPG.Movement {
 
         private void Update() { 
             UpdateAnimator();
-        } 
-
+        }  
         public void MoveTo(Vector3 destination)
         {
             agent.isStopped = false;
